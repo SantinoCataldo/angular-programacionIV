@@ -1,0 +1,88 @@
+<div class="form-container">
+  <h2>Sumate a nosotros</h2>
+  <p class="subtitle">Completá tus datos y dejanos tu consulta o propuesta</p>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="nombre">Nombre completo</label>
+      <input 
+        id="nombre" 
+        type="text" 
+        formControlName="nombre" 
+        placeholder="Ej: Juan Pérez"
+        [class.is-invalid]="nombre?.invalid && (nombre?.touched || nombre?.dirty)"
+      >
+      @if (nombre?.invalid && (nombre?.touched || nombre?.dirty)) {
+        <div class="error-msg">
+          @if (nombre?.errors?.['required']) { El nombre es obligatorio }
+          @if (nombre?.errors?.['minlength']) { Debe tener al menos 3 caracteres }
+          @if (nombre?.errors?.['maxlength']) { No puede superar los 20 caracteres }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo electrónico</label>
+      <input 
+        id="email" 
+        type="email" 
+        formControlName="email" 
+        placeholder="ejemplo@correo.com"
+        [class.is-invalid]="email?.invalid && (email?.touched || email?.dirty)"
+      >
+      @if (email?.invalid && (email?.touched || email?.dirty)) {
+        <div class="error-msg">
+          @if (email?.errors?.['required']) { El correo es obligatorio }
+          @if (email?.errors?.['email']) { Ingresá un correo electrónico válido }
+          @else if (email?.errors?.['minlength']) { Debe tener al menos 5 caracteres }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="rol">Area de interes</label>
+      <select 
+        id="rol" 
+        formControlName="rol"
+        [class.is-invalid]="rol?.invalid && (rol?.touched || rol?.dirty)"
+      >
+        <option value="" disabled>Selecciona un área</option>
+        <option value="desarrollo">Desarrollo Web</option>
+        <option value="diseno">Diseño UI/UX</option>
+        <option value="marketing">Marketing Digital</option>
+        <option value="otro">Otra consulta</option>
+      </select>
+      @if (rol?.invalid && (rol?.touched || rol?.dirty)) {
+        <div class="error-msg">
+          @if (rol?.errors?.['required']) { Por favor selecciona un area }
+        </div>
+      }
+    </div>
+
+    <div class="form-check">
+      <input 
+        id="terminos" 
+        type="checkbox" 
+        formControlName="aceptaTerminos"
+      >
+      <label for="terminos">Acepto los terminos y condiciones</label>
+    </div>
+    @if (aceptaTerminos?.invalid && (aceptaTerminos?.touched || aceptaTerminos?.dirty)) {
+      <div class="error-msg check-error">
+        Debes aceptar los terminos para continuar
+      </div>
+    }
+
+    <button 
+      type="submit" 
+      [disabled]="formulario.invalid && !enviado"
+      [class.btn-success]="enviado"
+    >
+      @if (enviado) {
+        ¡Enviado con exito!
+      } @else {
+        Enviar
+      }
+    </button>
+  </form>
+</div>

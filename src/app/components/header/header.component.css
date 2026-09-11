@@ -1,0 +1,94 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    z-index: 1000;
+    border-radius: 0;
+    border: 1px solid transparent;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav.scrolled {
+    top: 18px;
+    width: calc(100% - 40px);
+    max-width: 820px;
+    border-radius: 9999px;
+    padding: 10px 24px;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.35);
+}
+
+nav.scrolled .circle {
+    height: 26px;
+    width: 26px;
+    background: #e5e5e5;
+}
+
+.circle {
+    transition: height 0.6s ease;
+    display: block;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background: #222;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.links a {
+    color: #222;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.links a:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+nav.scrolled .links a {
+    color: #e5e5e5;
+}
+
+nav.scrolled .links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 14px 20px;
+    }
+
+    nav.scrolled {
+        top: 12px;
+        width: calc(100% - 24px);
+        padding: 8px 16px;
+    }
+
+    .links {
+        gap: 4px;
+    }
+
+    .links a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+}
