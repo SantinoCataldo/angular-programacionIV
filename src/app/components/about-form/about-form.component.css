@@ -1,130 +1,124 @@
 .form-container {
-  background: #ffffff;
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  background: var(--color-surface);
+  padding: 28px;
+  border-radius: var(--radius-md);
   max-width: 520px;
   margin: 0 auto;
-  border: 1px solid #ebebeb;
+  border: 1px solid var(--color-border);
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 22px;
   font-weight: 700;
-  color: #111;
+  color: var(--color-text);
   margin-bottom: 6px;
 }
 
 .subtitle {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 24px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
 }
 
 label {
-  font-size: 0.88rem;
+  font-size: 14px;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
+  color: var(--color-text);
+  margin-bottom: 6px;
 }
 
 input[type="text"],
 input[type="email"],
 select {
   width: 100%;
-  padding: 12px 14px;
-  border: 1.5px solid #dcdfe6;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  background: #fafafa;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--color-surface);
+  color: var(--color-text);
   outline: none;
+  transition: all 0.2s;
 }
 
 input:focus,
 select:focus {
-  background: #ffffff;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: var(--color-primary);
 }
 
 input.is-invalid,
 select.is-invalid {
-  border-color: #e11d48;
-  background: #fff5f5;
-}
-
-input.is-invalid:focus,
-select.is-invalid:focus {
-  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15);
+  border-color: var(--color-error);
+  background: #fff8f8;
 }
 
 .form-check {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 6px;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 4px;
 }
 
 .form-check input[type="checkbox"] {
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #2563eb;
+  accent-color: var(--color-primary);
 }
 
 .form-check label {
   margin-bottom: 0;
   cursor: pointer;
   font-weight: 400;
-  color: #444;
+  color: var(--color-text);
+  font-size: 14px;
 }
 
 .error-msg {
-  color: #e11d48;
-  font-size: 0.82rem;
-  margin-top: 6px;
+  color: var(--color-error);
+  font-size: 12px;
+  margin-top: 4px;
   font-weight: 500;
 }
 
 .check-error {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 button[type="submit"] {
   width: 100%;
-  padding: 13px 20px;
-  background: #111111;
-  color: #ffffff;
-  font-size: 1rem;
+  padding: 12px 18px;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 15px;
   font-weight: 600;
   border: none;
-  border-radius: 9999px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   margin-top: 16px;
-  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+  transition: all 0.2s;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: var(--color-primary-hover);
 }
 
 button[type="submit"]:disabled:not(.btn-success) {
-  background: #d1d5db;
-  color: #888;
-  cursor: default;
-  opacity: 0.7;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
 }
 
 button[type="submit"].btn-success,
 button[type="submit"].btn-success:disabled {
-  background: #16a34a;
-  color: #ffffff;
+  background: var(--color-success);
+  color: var(--color-surface);
   cursor: default;
-  opacity: 1;
-  transform: none;
-  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
 }
