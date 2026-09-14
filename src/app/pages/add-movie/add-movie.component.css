@@ -1,27 +1,48 @@
-.form-container {
-  background: var(--color-surface);
-  padding: 28px;
-  border-radius: var(--radius-md);
-  max-width: 520px;
-  margin: 0 auto;
-  border: 1px solid var(--color-border);
+:host {
+  display: block;
+  width: 100%;
 }
 
-h2 {
-  font-size: 22px;
+.add-movie-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 110px 20px 60px;
+}
+
+.form-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.back-link:hover {
+  color: var(--color-primary-hover);
+}
+
+.form-header h2 {
+  font-size: 24px;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .subtitle {
-  color: var(--color-text-muted);
   font-size: 14px;
-  margin-bottom: 20px;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   flex-direction: column;
 }
@@ -33,9 +54,7 @@ label {
   margin-bottom: 6px;
 }
 
-input[type="text"],
-input[type="email"],
-select {
+input, select, textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--color-border);
@@ -44,41 +63,17 @@ select {
   background: var(--color-surface);
   color: var(--color-text);
   outline: none;
+  font-family: inherit;
   transition: all 0.2s;
 }
 
-input:focus,
-select:focus {
+input:focus, select:focus, textarea:focus {
   border-color: var(--color-primary);
 }
 
-input.is-invalid,
-select.is-invalid {
+input.is-invalid, select.is-invalid {
   border-color: var(--color-error);
   background: #fff8f8;
-}
-
-.form-check {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  margin-bottom: 4px;
-}
-
-.form-check input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: var(--color-primary);
-}
-
-.form-check label {
-  margin-bottom: 0;
-  cursor: pointer;
-  font-weight: 400;
-  color: var(--color-text);
-  font-size: 14px;
 }
 
 .error-msg {
@@ -86,10 +81,6 @@ select.is-invalid {
   font-size: 12px;
   margin-top: 4px;
   font-weight: 500;
-}
-
-.check-error {
-  margin-bottom: 14px;
 }
 
 button[type="submit"] {
@@ -102,23 +93,12 @@ button[type="submit"] {
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  margin-top: 16px;
+  margin-top: 12px;
   transition: all 0.2s;
 }
 
-button[type="submit"]:hover:not(:disabled) {
-  background: var(--color-primary-hover);
-}
-
-button[type="submit"]:disabled:not(.btn-success) {
+button[type="submit"]:disabled {
   background: var(--color-border);
   color: var(--color-text-muted);
-  cursor: not-allowed;
-}
-
-button[type="submit"].btn-success,
-button[type="submit"].btn-success:disabled {
-  background: var(--color-success);
-  color: var(--color-surface);
   cursor: default;
 }

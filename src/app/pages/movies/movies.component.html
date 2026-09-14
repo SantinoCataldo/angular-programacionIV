@@ -1,0 +1,19 @@
+<section class="movies-page">
+  <header class="page-header">
+    <div>
+      <h1>Catalogo de peliculas</h1>
+      <p>Aca podes ver las peliculas cargadas o sumar una nueva</p>
+    </div>
+    <a routerLink="/add-movie" class="add-btn">Agregar pelicula</a>
+  </header>
+
+  <div class="movies-grid">
+    @for (movie of movies; track movie.id) {
+      <app-movie-card [movie]="movie" />
+    } @empty {
+      <div class="empty-state">
+        <p>No hay peliculas cargadas todavia, podes agregar una desde el boton de arriba</p>
+      </div>
+    }
+  </div>
+</section>

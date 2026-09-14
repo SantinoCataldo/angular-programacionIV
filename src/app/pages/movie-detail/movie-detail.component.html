@@ -1,0 +1,32 @@
+<section class="detail-page">
+  <div class="container">
+    <a routerLink="/movies" class="back-link">Volver al catalogo</a>
+
+    @if (movie) {
+      <div class="movie-detail-card">
+        <div class="poster-col">
+          <img [src]="movie.imageUrl" [alt]="movie.title" />
+        </div>
+        <div class="info-col">
+          <h1>{{ movie.title }}</h1>
+          <span class="category-badge">{{ movie.category }}</span>
+          
+          <div class="description-box">
+            <h3>Sinopsis</h3>
+            <p>{{ movie.description || 'No hay descripcion para esta pelicula' }}</p>
+          </div>
+
+          <div class="actions">
+            <a routerLink="/movies" class="btn-secondary">Volver al catalogo</a>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="not-found">
+        <h2>Pelicula no encontrada</h2>
+        <p>No encontramos ninguna pelicula con ese id</p>
+        <a routerLink="/movies" class="btn-secondary">Volver al catalogo</a>
+      </div>
+    }
+  </div>
+</section>

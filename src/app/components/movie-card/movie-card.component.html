@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="poster-container">
+    <img [src]="movie.imageUrl" [alt]="movie.title" loading="lazy" />
+  </div>
+  <div class="content">
+    <h3 class="title">{{ movie.title }}</h3>
+    <span class="category">{{ movie.category }}</span>
+    @if (movie.description) {
+      <p class="description">{{ movie.description }}</p>
+    }
+    <a [routerLink]="['/movie', movie.id]" class="details-btn">
+      Ver detalle
+    </a>
+  </div>
+</div>
